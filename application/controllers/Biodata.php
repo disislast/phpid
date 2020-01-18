@@ -477,12 +477,33 @@ class Biodata extends CI_Controller {
 
 		$fpdf->AddPage(); // make new page. page 1
 
-		$fpdf->SetFont('Times', 'B', 16); // set font
-		$fpdf->Cell(100, 10, 'here is the text', 1, 1); // set column. max width = 279
+		$fpdf->SetFont('Times', 'B', 46); // set font
+		$fpdf->Cell(100, 20, 'Kartu Tanda Penduduk', 0, 1); // set column. max width = 279
 
-		$fpdf->SetFont('Times', '', 16); // set font
-		$fpdf->setFillColor(119, 235, 52);
-		$fpdf->Cell(100, 10, 'here is the text', 1, 0, 'R', 1);
+		$fpdf->SetFont('Times', 'B', 24); // set font
+		$fpdf->setFillColor(119, 235, 52); //set collor
+		$fpdf->Cell(70, 20, 'NIK', 0, 0, 'L', 1); // set column. max width = 279
+		$fpdf->Cell(205, 15, $get_bio->BioUniqueId, 0, 1, 'L', 1);
+
+		$fpdf->SetFont('Times', '', 20); // set font
+		$fpdf->Cell(70, 16, 'Nama', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioName, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Tempat/tanggal lahir', 0, 0, 'L',  1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioBirthPlace . '/' . $get_bio->BioBirthDate, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Jenis Kelamin', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioGender, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Alamat', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioAddress, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Agama', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioReligion, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Status Perkawinan', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioStatusMarital, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Edukasi', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioEducation, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Bahasa', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioLanguage, 0, 1, 'L', 1);
+		$fpdf->Cell(70, 16, 'Dibuat pada', 0, 0, 'L', 1);
+		$fpdf->Cell(205, 16, ': ' . $get_bio->BioCreated, 0, 1, 'L', 1);
 
 		$fpdf->Output('I', 'Biodata.pdf'); // set the output of pdf. view/download/document type
 	}
