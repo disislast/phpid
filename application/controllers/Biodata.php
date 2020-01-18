@@ -65,6 +65,7 @@ class Biodata extends CI_Controller {
 		$this->data['js_inline'] = '
 			// configuration of datatables
 			var tables_bio =$("#datatables_bio").DataTable({
+				"scrollX": true,
 				"processing": false, //Feature control the processing indicator.
 				"serverSide": true, //Feature control DataTables server-side processing mode.
 				"order": [], //Initial no order.
