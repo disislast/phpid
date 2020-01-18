@@ -481,9 +481,10 @@ class Biodata extends CI_Controller {
 		$fpdf->Cell(100, 20, 'Kartu Tanda Penduduk', 0, 1); // set column. max width = 279
 
 		$fpdf->SetFont('Times', 'B', 24); // set font
-		$fpdf->setFillColor(119, 235, 52); //set collor
+		$fpdf->setFillColor(50, 168, 164); //set collor
 		$fpdf->Cell(70, 20, 'NIK', 0, 0, 'L', 1); // set column. max width = 279
 		$fpdf->Cell(205, 15, $get_bio->BioUniqueId, 0, 1, 'L', 1);
+
 
 		$fpdf->SetFont('Times', '', 20); // set font
 		$fpdf->Cell(70, 16, 'Nama', 0, 0, 'L', 1);
@@ -491,7 +492,14 @@ class Biodata extends CI_Controller {
 		$fpdf->Cell(70, 16, 'Tempat/tanggal lahir', 0, 0, 'L',  1);
 		$fpdf->Cell(205, 16, ': ' . $get_bio->BioBirthPlace . '/' . $get_bio->BioBirthDate, 0, 1, 'L', 1);
 		$fpdf->Cell(70, 16, 'Jenis Kelamin', 0, 0, 'L', 1);
+		//kreasi
+		if ($get_bio->BioGender == 'LL'){
+			echo $fpdf->setFillColor(50, 168, 164);
+		} else {
+			echo $fpdf->setFillColor(50, 0, 164);
+		}
 		$fpdf->Cell(205, 16, ': ' . $get_bio->BioGender, 0, 1, 'L', 1);
+		$fpdf->setFillColor(50, 168, 164); //set back
 		$fpdf->Cell(70, 16, 'Alamat', 0, 0, 'L', 1);
 		$fpdf->Cell(205, 16, ': ' . $get_bio->BioAddress, 0, 1, 'L', 1);
 		$fpdf->Cell(70, 16, 'Agama', 0, 0, 'L', 1);
